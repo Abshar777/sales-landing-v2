@@ -21,70 +21,43 @@ const Hero = () => {
         // gradient headings). SplitText is only used on plain-colour text.
         // ─────────────────────────────────────────────────────────────────────
         const subtitleSplit = SplitText.create('.hero-subtitle', { type: 'words' });
-        const isMobile = window.matchMedia('(max-width: 767px)').matches;
-        const blur = (px: number) => isMobile ? 'blur(0px)' : `blur(${px}px)`;
+        const mob = window.matchMedia('(max-width: 767px)').matches;
+        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
         tl
             // Badge fades down
             .from('.hero-badge', {
-                opacity: 0,
-                y: -24,
-                filter: blur(12),
-                duration: 0.8,
+                opacity: 0, y: -24, ...f(12), duration: 0.8,
             })
             // Line 1: "From Beginner To" — whole line block reveal
             .from('.hero-line-1', {
-                opacity: 0,
-                y: 60,
-                filter: blur(16),
-                duration: 1.0,
+                opacity: 0, y: 60, ...f(16), duration: 1.0,
             }, '-=0.4')
             // Line 2: "Profitable [icon] Trader" — slight stagger after line 1
             .from('.hero-line-2', {
-                opacity: 0,
-                y: 70,
-                filter: blur(16),
-                duration: 1.0,
+                opacity: 0, y: 70, ...f(16), duration: 1.0,
             }, '-=0.7')
             // Subtitle: SplitText word blur-in (safe — no bg-clip-text)
             .from(subtitleSplit.words, {
-                opacity: 0,
-                y: 24,
-                filter: blur(8),
-                stagger: 0.045,
-                duration: 0.85,
+                opacity: 0, y: 24, ...f(8), stagger: 0.045, duration: 0.85,
             }, '-=0.6')
             // CTA lines extend outward
             .from('.cta-line', {
-                scaleX: 0,
-                opacity: 0,
-                duration: 0.9,
-                stagger: 0.12,
+                scaleX: 0, opacity: 0, duration: 0.9, stagger: 0.12,
             }, '-=0.55')
             // CTA button pops up
             .from('.hero-cta-btn', {
-                opacity: 0,
-                y: 20,
-                scale: 0.92,
-                filter: blur(6),
-                duration: 0.7,
+                opacity: 0, y: 20, scale: 0.92, ...f(6), duration: 0.7,
             }, '-=0.75')
             // Floating badge slides down
             .from('.floating-badge', {
-                opacity: 0,
-                y: -28,
-                filter: blur(10),
-                duration: 0.9,
+                opacity: 0, y: -28, ...f(10), duration: 0.9,
             }, '-=0.5')
             // Video container rises from below
             .from('.hero-video-container', {
-                opacity: 0,
-                y: 100,
-                filter: blur(18),
-                duration: 1.4,
-                ease: 'power3.out',
+                opacity: 0, y: 100, ...f(18), duration: 1.4, ease: 'power3.out',
             }, '-=0.65');
 
         // Subtle parallax — video drifts up as you scroll

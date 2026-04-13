@@ -65,10 +65,10 @@ export default function Preloader({ onExitStart, onComplete }: Props) {
     const pathLen = path.getTotalLength();
     gsap.set(path, { strokeDasharray: pathLen, strokeDashoffset: pathLen });
 
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    const blur = (px: number) => isMobile ? 'blur(0px)' : `blur(${px}px)`;
+    const mob = window.matchMedia('(max-width: 767px)').matches;
+    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
-    gsap.set(".pre-logo",      { opacity: 0, y: 30, filter: blur(20) });
+    gsap.set(".pre-logo",      { opacity: 0, y: 30, ...f(20) });
     gsap.set(".pre-counter",   { opacity: 0 });
     gsap.set(".pre-label",     { opacity: 0 });
     gsap.set(".pre-candle",    { scaleY: 0, transformOrigin: "bottom center" });
@@ -100,7 +100,7 @@ export default function Preloader({ onExitStart, onComplete }: Props) {
     // ticker items
     tl.to(".pre-ticker",  { opacity: 1, x: 0, stagger: 0.07, duration: 0.5, ease: "power3.out" }, 0.3);
     // logo
-    tl.to(".pre-logo",    { opacity: 1, y: 0, filter: blur(0), duration: 1, ease: "power4.out" }, 0.4);
+    tl.to(".pre-logo",    { opacity: 1, y: 0, ...f(0), duration: 1, ease: "power4.out" }, 0.4);
     // chart
     tl.to(".pre-chart",   { opacity: 1, duration: 0.4 }, 0.7);
     // chart line draw
