@@ -77,6 +77,8 @@ export default function TestimonialsSection() {
 
   useGSAP(() => {
     const subtitleSplit = SplitText.create('.test-subtitle', { type: 'words' });
+    const mob = window.matchMedia('(max-width: 767px)').matches;
+    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -85,27 +87,13 @@ export default function TestimonialsSection() {
 
     tl
       .from(['.test-line-1', '.test-line-2'], {
-        opacity: 0,
-        y: 65,
-        filter: 'blur(16px)',
-        stagger: 0.18,
-        duration: 1.1,
+        opacity: 0, y: 65, ...f(16), stagger: 0.18, duration: 1.1,
       })
       .from(subtitleSplit.words, {
-        opacity: 0,
-        y: 24,
-        filter: 'blur(8px)',
-        stagger: 0.04,
-        duration: 0.85,
+        opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
       }, '-=0.55')
       .from('.test-card', {
-        opacity: 0,
-        y: 80,
-        rotateX: 16,
-        filter: 'blur(10px)',
-        transformPerspective: 900,
-        stagger: 0.12,
-        duration: 1.1,
+        opacity: 0, y: 80, rotateX: 16, ...f(10), transformPerspective: 900, stagger: 0.12, duration: 1.1,
       }, '-=0.5');
 
     return () => { try { subtitleSplit.revert(); } catch(e) {} };

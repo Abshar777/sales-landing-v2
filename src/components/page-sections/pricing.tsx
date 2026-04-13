@@ -14,6 +14,8 @@ export default function PricingSection() {
 
     useGSAP(() => {
         const subtitleSplit = SplitText.create('.pricing-subtitle', { type: 'words' });
+        const mob = window.matchMedia('(max-width: 767px)').matches;
+        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({
             scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -22,33 +24,16 @@ export default function PricingSection() {
 
         tl
             .from(['.pricing-line-1', '.pricing-line-2'], {
-                opacity: 0,
-                y: 65,
-                filter: 'blur(16px)',
-                stagger: 0.18,
-                duration: 1.1,
+                opacity: 0, y: 65, ...f(16), stagger: 0.18, duration: 1.1,
             })
             .from(subtitleSplit.words, {
-                opacity: 0,
-                y: 24,
-                filter: 'blur(8px)',
-                stagger: 0.04,
-                duration: 0.85,
+                opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
             }, '-=0.55')
             .from('.pricing-toggle', {
-                opacity: 0,
-                y: 24,
-                filter: 'blur(8px)',
-                duration: 0.8,
+                opacity: 0, y: 24, ...f(8), duration: 0.8,
             }, '-=0.4')
             .from('.pricing-card', {
-                opacity: 0,
-                y: 90,
-                rotateX: 16,
-                filter: 'blur(10px)',
-                transformPerspective: 900,
-                stagger: 0.18,
-                duration: 1.2,
+                opacity: 0, y: 90, rotateX: 16, ...f(10), transformPerspective: 900, stagger: 0.18, duration: 1.2,
             }, '-=0.5');
 
         return () => { try { subtitleSplit.revert(); } catch(e) {} };

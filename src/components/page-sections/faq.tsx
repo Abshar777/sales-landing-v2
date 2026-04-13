@@ -36,6 +36,8 @@ export default function FAQSection() {
 
   useGSAP(() => {
     const subSplit = SplitText.create('.faq-sub', { type: 'words' });
+    const mob = window.matchMedia('(max-width: 767px)').matches;
+    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -44,25 +46,13 @@ export default function FAQSection() {
 
     tl
       .from(['.faq-line-1', '.faq-line-2'], {
-        opacity: 0,
-        y: 65,
-        filter: 'blur(16px)',
-        stagger: 0.18,
-        duration: 1.1,
+        opacity: 0, y: 65, ...f(16), stagger: 0.18, duration: 1.1,
       })
       .from(subSplit.words, {
-        opacity: 0,
-        y: 24,
-        filter: 'blur(8px)',
-        stagger: 0.04,
-        duration: 0.85,
+        opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
       }, '-=0.5')
       .from('.faq-item', {
-        opacity: 0,
-        y: 50,
-        filter: 'blur(10px)',
-        stagger: 0.1,
-        duration: 0.9,
+        opacity: 0, y: 50, ...f(10), stagger: 0.1, duration: 0.9,
       }, '-=0.5');
 
     return () => { try { subSplit.revert(); } catch(e) {} };

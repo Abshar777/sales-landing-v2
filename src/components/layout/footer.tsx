@@ -13,6 +13,8 @@ export default function Footer() {
 
   useGSAP(() => {
     const brandSplit = SplitText.create('.footer-brand', { type: 'chars' });
+    const mob = window.matchMedia('(max-width: 767px)').matches;
+    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: container.current, start: 'top 92%' },
@@ -21,32 +23,16 @@ export default function Footer() {
 
     tl
       .from('.footer-card', {
-        opacity: 0,
-        y: 60,
-        rotateX: 12,
-        filter: 'blur(14px)',
-        transformPerspective: 900,
-        duration: 1.2,
+        opacity: 0, y: 60, rotateX: 12, ...f(14), transformPerspective: 900, duration: 1.2,
       })
       .from(brandSplit.chars, {
-        opacity: 0,
-        y: 30,
-        filter: 'blur(8px)',
-        stagger: { amount: 0.35 },
-        duration: 0.9,
+        opacity: 0, y: 30, ...f(8), stagger: { amount: 0.35 }, duration: 0.9,
       }, '-=0.7')
       .from('.footer-btn', {
-        opacity: 0,
-        y: 20,
-        filter: 'blur(6px)',
-        duration: 0.7,
+        opacity: 0, y: 20, ...f(6), duration: 0.7,
       }, '-=0.5')
       .from('.footer-link', {
-        opacity: 0,
-        x: -16,
-        filter: 'blur(6px)',
-        stagger: 0.07,
-        duration: 0.65,
+        opacity: 0, x: -16, ...f(6), stagger: 0.07, duration: 0.65,
       }, '-=0.55');
 
     return () => { try { brandSplit.revert(); } catch(e) {} };
