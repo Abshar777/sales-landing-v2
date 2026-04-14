@@ -20,7 +20,7 @@ export default function Home() {
   const [heroReady, setHeroReady] = useState(false);
   // preloaderGone: true when wipe fully completes — unmounts preloader from DOM
   const [preloaderGone, setPreloaderGone] = useState(false);
-  const mob = window.matchMedia('(max-width: 767px)').matches;
+  const mob = typeof window !== "undefined" ? window.matchMedia('(max-width: 767px)').matches : false;
 
   useEffect(() => {
     if (!mob) {
