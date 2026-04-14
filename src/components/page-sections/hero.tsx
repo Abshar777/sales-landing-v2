@@ -22,7 +22,7 @@ const Hero = () => {
         // ─────────────────────────────────────────────────────────────────────
         const subtitleSplit = SplitText.create('.hero-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? { filter: `blur(${px}px)` } : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
@@ -72,7 +72,7 @@ const Hero = () => {
             // },
         });
 
-        return () => { try { subtitleSplit.revert(); } catch(e) {} };
+        return () => { try { subtitleSplit.revert(); } catch (e) { } };
     }, { scope: container });
 
     return (

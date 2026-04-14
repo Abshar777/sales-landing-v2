@@ -22,7 +22,7 @@ export default function TradingTeamSection() {
   useGSAP(() => {
     const subtitleSplit = SplitText.create('.team-subtitle', { type: 'words' });
     const mob = window.matchMedia('(max-width: 767px)').matches;
-    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
+    const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -37,7 +37,7 @@ export default function TradingTeamSection() {
         opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
       }, '-=0.55')
       .from('.team-card', {
-        opacity: 0, y: 80, ...f(12), rotateX: 14, transformPerspective: 900, duration: 1.3,
+        opacity: 0, y: 80, ...f(12), rotateX: 14, duration: 1.3,
       }, '-=0.5')
       .from('.stat-item', {
         opacity: 0, y: 20, ...f(8), stagger: 0.1, duration: 0.7,

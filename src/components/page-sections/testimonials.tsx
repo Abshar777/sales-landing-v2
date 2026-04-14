@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
   useGSAP(() => {
     const subtitleSplit = SplitText.create('.test-subtitle', { type: 'words' });
     const mob = window.matchMedia('(max-width: 767px)').matches;
-    const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
+    const f = (px: number) => mob ? { filter: `blur(${px}px)` } : { filter: `blur(${px}px)` };
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
         opacity: 0, y: 80, rotateX: 16, ...f(10), transformPerspective: 900, stagger: 0.12, duration: 1.1,
       }, '-=0.5');
 
-    return () => { try { subtitleSplit.revert(); } catch(e) {} };
+    return () => { try { subtitleSplit.revert(); } catch (e) { } };
   }, { scope: container });
 
   return (
@@ -127,8 +127,8 @@ export default function TestimonialsSection() {
         {/* Carousel Container */}
         <div className="relative group">
           {/* Side Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#010406] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#010406] to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 hidden md:block top-0 bottom-0 w-32 bg-gradient-to-r from-[#010406] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 hidden md:block top-0 bottom-0 w-32 bg-gradient-to-l from-[#010406] to-transparent z-20 pointer-events-none" />
 
           {/* Swiper Carousel */}
           <Swiper
@@ -146,59 +146,59 @@ export default function TestimonialsSection() {
             {testimonials.map((item, index) => (
               <SwiperSlide key={index} className="!w-[350px] md:!w-[450px]">
                 <div className="test-card rounded-[2.5rem] p-1 border border-blue-400/15 backdrop-blur-xl h-full">
-                <div className="group/card relative rounded-[2.5rem] p-6 md:p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden card-rim-light h-full flex flex-col">
-                  {/* Card Glare */}
-                  <div className="absolute inset-0 card-glare pointer-events-none opacity-60 group-hover/card:opacity-100 transition-opacity duration-700" />
+                  <div className="group/card relative rounded-[2.5rem] p-6 md:p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden card-rim-light h-full flex flex-col">
+                    {/* Card Glare */}
+                    <div className="absolute inset-0 card-glare pointer-events-none opacity-60 group-hover/card:opacity-100 transition-opacity duration-700" />
 
-                  {/* Grid Background */}
-                  <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-10 pointer-events-none" />
+                    {/* Grid Background */}
+                    <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-10 pointer-events-none" />
 
-                  {/* Bottom glow */}
-                  <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700 pointer-events-none" />
+                    {/* Bottom glow */}
+                    <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700 pointer-events-none" />
 
-                  <div className="relative z-10 flex flex-col h-full">
-                    {/* Video Thumbnail */}
-                    <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-blue-400/10 mb-8 group/video shadow-2xl">
-                      <img
-                        src={item.video}
-                        alt={item.name}
-                        className="w-full h-full object-cover opacity-70 group-hover/video:scale-105 transition-transform duration-1000"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <button className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center hover:scale-110 transition-all duration-500 shadow-2xl">
-                          <Play className="w-6 h-6 text-white fill-white ml-1" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Quote */}
-                    <div className="mb-8 relative flex-1">
-                      <Quote className="absolute -top-4 -left-2 w-8 h-8 text-blue-400/10 -z-10" />
-                      <p className="text-sm md:text-base text-blue-200/80 leading-relaxed italic">
-                        &ldquo;{item.quote}&rdquo;
-                      </p>
-                    </div>
-
-                    {/* Author */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-blue-200/5">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-blue-500/20 blur-md rounded-full" />
+                    <div className="relative z-10 flex flex-col h-full">
+                      {/* Video Thumbnail */}
+                      <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-blue-400/10 mb-8 group/video shadow-2xl">
                         <img
-                          src={item.avatar}
+                          src={item.video}
                           alt={item.name}
-                          className="relative w-10 h-10 rounded-full border border-blue-200/10 object-cover"
+                          className="w-full h-full object-cover opacity-70 group-hover/video:scale-105 transition-transform duration-1000"
                           referrerPolicy="no-referrer"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <button className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center hover:scale-110 transition-all duration-500 shadow-2xl">
+                            <Play className="w-6 h-6 text-white fill-white ml-1" />
+                          </button>
+                        </div>
                       </div>
-                      <div>
-                        <div className="font-bold text-white text-sm">{item.name}</div>
-                        <div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">{item.role}</div>
+
+                      {/* Quote */}
+                      <div className="mb-8 relative flex-1">
+                        <Quote className="absolute -top-4 -left-2 w-8 h-8 text-blue-400/10 -z-10" />
+                        <p className="text-sm md:text-base text-blue-200/80 leading-relaxed italic">
+                          &ldquo;{item.quote}&rdquo;
+                        </p>
+                      </div>
+
+                      {/* Author */}
+                      <div className="flex items-center gap-4 pt-6 border-t border-blue-200/5">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-blue-500/20 blur-md rounded-full" />
+                          <img
+                            src={item.avatar}
+                            alt={item.name}
+                            className="relative w-10 h-10 rounded-full border border-blue-200/10 object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                        <div>
+                          <div className="font-bold text-white text-sm">{item.name}</div>
+                          <div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">{item.role}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </SwiperSlide>
             ))}

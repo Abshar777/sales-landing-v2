@@ -15,7 +15,7 @@ export default function PricingSection() {
     useGSAP(() => {
         const subtitleSplit = SplitText.create('.pricing-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({
             scrollTrigger: { trigger: container.current, start: 'top 82%' },

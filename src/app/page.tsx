@@ -20,13 +20,16 @@ export default function Home() {
   const [heroReady, setHeroReady] = useState(false);
   // preloaderGone: true when wipe fully completes — unmounts preloader from DOM
   const [preloaderGone, setPreloaderGone] = useState(false);
+  const mob = window.matchMedia('(max-width: 767px)').matches;
 
   useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    if (!mob) {
+      initParticlesEngine(async (engine: Engine) => {
+        await loadSlim(engine);
+      }).then(() => {
+        setInit(true);
+      });
+    }
   }, []);
   return (
     <>
@@ -39,54 +42,54 @@ export default function Home() {
       {heroReady && <Hero />}
       {heroReady && <Nav />}
       {heroReady && <div className="relative">
-          <FeaturesSection />
-          <TradingTeamSection />
-          <PricingSection />
-          <TestimonialsSection/>
-          <FAQSection />
-          {/* {init && (
-            <Particles
-              id="tsparticles"
-              className="absolute inset-0 pointer-events-none z-0 opacity-50"
-              options={{
-                fpsLimit: 120,
-                particles: {
-                  color: {
-                    value: "#3b82f6",
-                  },
-                  move: {
-                    direction: "right",
-                    enable: true,
-                    outModes: {
-                      default: "out",
-                    },
-                    random: true,
-                    speed: { min: 1, max: 3 },
-                    straight: false,
-                  },
-                  number: {
-                    density: {
-                      enable: true,
-                    },
-                    value: 80,
-                  },
-                  opacity: {
-                    value: { min: 0.1, max: 0.5 },
-                  },
-                  shape: {
-                    type: "circle",
-                  },
-                  size: {
-                    value: { min: 1, max: 3 },
-                  },
+        <FeaturesSection />
+        <TradingTeamSection />
+        <PricingSection />
+        <TestimonialsSection />
+        <FAQSection />
+        {init && (
+          <Particles
+            id="tsparticles"
+            className="absolute inset-0 pointer-events-none z-0 opacity-50"
+            options={{
+              fpsLimit: 120,
+              particles: {
+                color: {
+                  value: "#3b82f6",
                 },
-                detectRetina: true,
-                fullScreen: { enable: false },
-              }}
-            />
-          )} */}
-        </div>}
+                move: {
+                  direction: "right",
+                  enable: true,
+                  outModes: {
+                    default: "out",
+                  },
+                  random: true,
+                  speed: { min: 1, max: 3 },
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                  },
+                  value: 80,
+                },
+                opacity: {
+                  value: { min: 0.1, max: 0.5 },
+                },
+                shape: {
+                  type: "circle",
+                },
+                size: {
+                  value: { min: 1, max: 3 },
+                },
+              },
+              detectRetina: true,
+              fullScreen: { enable: false },
+            }}
+          />
+        )}
+      </div>}
       {heroReady && <Footer />}
-      </>
-    );
-  }
+    </>
+  );
+}
