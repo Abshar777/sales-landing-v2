@@ -137,14 +137,14 @@ const Nav = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3 flex-shrink-0">
           <button className="text-sm text-white/70 hover:text-white transition-colors duration-200">Login</button>
-          <button className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md text-sm text-white px-4 py-2 rounded-full border border-white/10 hover:border-white/20 transition-colors duration-200">
+          <button className="bg-gradient-to-b from-white/10 to-white/5 md:backdrop-blur-md text-sm text-white px-4 py-2 rounded-full border border-white/10 hover:border-white/20 transition-colors duration-200">
             Register
           </button>
         </div>
 
         {/* Mobile: Register + Hamburger */}
         <div className="flex md:hidden items-center gap-3">
-          <button className="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md text-xs text-white px-4 py-2 rounded-full border border-white/10">
+          <button className="bg-gradient-to-b from-white/10 to-white/5 md:backdrop-blur-md text-xs text-white px-4 py-2 rounded-full border border-white/10">
             Register
           </button>
           <button

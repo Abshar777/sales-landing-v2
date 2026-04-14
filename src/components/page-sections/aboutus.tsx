@@ -77,7 +77,7 @@ export default function TradingTeamSection() {
 
         {/* Card */}
         <div className="team-card p-[1px] rounded-[2.5rem] bg-gradient-to-b from-blue-400/20 to-blue-400/5">
-          <div className="rounded-[2.5rem] bg-[#050a15]/95 backdrop-blur-xl overflow-hidden border border-white/5">
+          <div className="rounded-[2.5rem] bg-[#050a15]/95 md:backdrop-blur-xl overflow-hidden border border-white/5">
 
             <div className="flex flex-col lg:flex-row">
 
@@ -91,7 +91,7 @@ export default function TradingTeamSection() {
                 {/* Gradient fade — bottom on mobile, right on desktop */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#050a15]" />
                 {/* Accent badge */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm">
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 md:backdrop-blur-sm">
                   <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
                   <span className="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Est. 2017</span>
                 </div>

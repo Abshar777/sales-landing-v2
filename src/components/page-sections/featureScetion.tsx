@@ -107,8 +107,8 @@ export default function FeaturesSection() {
             {/* Feature Cards */}
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                 {/* Card 1 */}
-                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  backdrop-blur-xl">
-                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  md:backdrop-blur-xl">
+                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
                         <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
 
                         <div className="relative h-56 w-full mb-8 flex items-center justify-center">
@@ -135,8 +135,8 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  backdrop-blur-xl">
-                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  md:backdrop-blur-xl">
+                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
                         <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
 
                         <div className="relative h-56 w-full mb-8 flex items-center justify-center">
@@ -167,8 +167,8 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  backdrop-blur-xl">
-                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                <div className="card feature-card rounded-[2.5rem] p-1 border border-blue-400/15  md:backdrop-blur-xl">
+                    <div className=" group relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
                         <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
 
                         <div className="relative h-56 w-full mb-8 flex flex-col justify-center px-4">

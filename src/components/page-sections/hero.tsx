@@ -85,7 +85,7 @@ const Hero = () => {
 
                 <main className="relative z-10 flex flex-col pt-36 md:pt-50 items-center text-center w-full max-w-4xl mx-auto px-4">
                     {/* Badge */}
-                    <div className="hero-badge mb-6 md:mb-8 px-4 py-2.5 rounded-full bg-gradient-to-b from-white/10 to-white/3 backdrop-blur-md text-[10px] text-white/5 uppercase tracking-[0.15em]">
+                    <div className="hero-badge mb-6 md:mb-8 px-4 py-2.5 rounded-full bg-gradient-to-b from-white/10 to-white/3 md:backdrop-blur-md text-[10px] text-white/5 uppercase tracking-[0.15em]">
                         <span className="text-white">Guinness Record Holder</span>
                     </div>
 
@@ -126,7 +126,7 @@ const Hero = () => {
                     {/* Video section */}
                     <div className="relative mt-20 md:mt-24 w-full flex items-center justify-center">
                         {/* Floating badge */}
-                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
+                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 md:backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
                             <div className="border rounded-xl p-1.5 md:p-2 border-white/10">
                                 <img src="/logo.webp" alt="Delta" className="w-7 md:w-10 object-cover" referrerPolicy="no-referrer" />
                             </div>
@@ -140,7 +140,7 @@ const Hero = () => {
                             <img src="/aboutus.png" alt="Studio" className="w-full h-full rounded-3xl md:rounded-4xl object-cover opacity-80" referrerPolicy="no-referrer" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <button className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center hover:scale-110 transition-transform duration-700">
+                                <button className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/5 md:backdrop-blur-xl border border-white/10 flex items-center justify-center hover:scale-110 transition-transform duration-700">
                                     <MdPlayArrow className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
                                 </button>
                             </div>

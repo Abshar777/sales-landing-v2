@@ -101,6 +101,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── iOS / Mobile performance ─────────────────────────────────────────────
+   backdrop-filter forces a separate GPU compositing layer for EVERY element
+   that uses it. On iPhone this exhausts GPU memory and causes severe lag.
+   Strip it completely on mobile — card backgrounds are opaque enough without it.
+   ──────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Pause expensive looping CSS animations on mobile */
+  .animate-grid-move {
+    animation: none !important;
+  }
+
+  /* Promote scrollable container to its own layer for smooth iOS scroll */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Stop spinning ring on feature card — expensive on mobile */
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
+
 /* Prevent SplitText word-wrap overflow during animation */
 .split-overflow-hidden {
   overflow: hidden;

@@ -145,8 +145,8 @@ export default function TestimonialsSection() {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index} className="!w-[350px] md:!w-[450px]">
-                <div className="test-card rounded-[2.5rem] p-1 border border-blue-400/15 backdrop-blur-xl h-full">
-                  <div className="group/card relative rounded-[2.5rem] p-6 md:p-8 border border-blue-400/10 bg-[#050a15]/60 backdrop-blur-xl overflow-hidden card-rim-light h-full flex flex-col">
+                <div className="test-card rounded-[2.5rem] p-1 border border-blue-400/15 md:backdrop-blur-xl h-full">
+                  <div className="group/card relative rounded-[2.5rem] p-6 md:p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden card-rim-light h-full flex flex-col">
                     {/* Card Glare */}
                     <div className="absolute inset-0 card-glare pointer-events-none opacity-60 group-hover/card:opacity-100 transition-opacity duration-700" />
 
@@ -167,7 +167,7 @@ export default function TestimonialsSection() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <button className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center hover:scale-110 transition-all duration-500 shadow-2xl">
+                          <button className="w-16 h-16 rounded-full bg-white/10 md:backdrop-blur-2xl border border-white/20 flex items-center justify-center hover:scale-110 transition-all duration-500 shadow-2xl">
                             <Play className="w-6 h-6 text-white fill-white ml-1" />
                           </button>
                         </div>

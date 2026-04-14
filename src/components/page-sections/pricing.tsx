@@ -76,7 +76,7 @@ export default function PricingSection() {
 
                 {/* Toggle */}
                 <div className="pricing-toggle flex justify-center mb-16">
-                    <div className="bg-blue-600/5 border backdrop-blur-3xl border-blue-200/10 p-1.5 rounded-full flex items-center gap-2">
+                    <div className="bg-blue-600/5 border md:backdrop-blur-3xl border-blue-200/10 p-1.5 rounded-full flex items-center gap-2">
                         <button
                             onClick={() => setPlan('traders')}
                             className={`relative px-6 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 z-10 ${plan === 'traders' ? 'text-white' : 'text-gray-400 hover:text-white'}`}
@@ -111,8 +111,8 @@ export default function PricingSection() {
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                     {/* Left Card: Pricing */}
-                    <div className="p-1 pricing-card  rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 backdrop-blur-2xl">
-                        <div className="group relative rounded-[3rem] p-10 md:p-10 border border-blue-600/10 bg-[#050a15]/60 backdrop-blur-2xl overflow-hidden flex flex-col card-rim-light">
+                    <div className="p-1 pricing-card  rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 md:backdrop-blur-2xl">
+                        <div className="group relative rounded-[3rem] p-10 md:p-10 border border-blue-600/10 bg-[#050a15]/60 md:backdrop-blur-2xl overflow-hidden flex flex-col card-rim-light">
                             {/* Grid Background */}
                             <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-20 pointer-events-none" />
 
@@ -153,8 +153,8 @@ export default function PricingSection() {
                         </div>
                     </div>
                     {/* Right Card: Testimonial/Video */}
-                     <div className="p-1 pricing-card rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 backdrop-blur-2xl">
-                    <div className=" group relative rounded-[3rem]  p-4 border border-white/10 bg-[#050a15]/60 backdrop-blur-2xl overflow-hidden flex flex-col card-rim-light">
+                     <div className="p-1 pricing-card rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 md:backdrop-blur-2xl">
+                    <div className=" group relative rounded-[3rem]  p-4 border border-white/10 bg-[#050a15]/60 md:backdrop-blur-2xl overflow-hidden flex flex-col card-rim-light">
                         {/* Grid Background */}
                         <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-20 pointer-events-none" />
 
@@ -175,7 +175,7 @@ export default function PricingSection() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <button className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center group/btn hover:scale-110 transition-all duration-500 shadow-2xl">
+                                    <button className="w-20 h-20 rounded-full bg-white/10 md:backdrop-blur-2xl border border-white/20 flex items-center justify-center group/btn hover:scale-110 transition-all duration-500 shadow-2xl">
                                         <Play className="w-8 h-8 text-white fill-white ml-1" />
                                     </button>
                                 </div>

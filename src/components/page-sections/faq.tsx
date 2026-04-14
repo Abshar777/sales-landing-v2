@@ -66,7 +66,7 @@ export default function FAQSection() {
       <div className="max-w-3xl mx-auto px-6 relative z-10 pb-48">
         {/* Badge */}
         {/* <div className="faq-badge flex justify-center mb-7">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-400/20 bg-blue-500/5 backdrop-blur-md text-[10px] font-bold text-blue-300 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-400/20 bg-blue-500/5 md:backdrop-blur-md text-[10px] font-bold text-blue-300 uppercase tracking-widest">
             New Design?
           </div>
         </div> */}
@@ -99,7 +99,7 @@ export default function FAQSection() {
             return (
               <div
                 key={index}
-                className="faq-item rounded-[1.4rem] border border-blue-400/15 bg-[#050a15]/70 backdrop-blur-xl overflow-hidden card-rim-light transition-colors duration-300"
+                className="faq-item rounded-[1.4rem] border border-blue-400/15 bg-[#050a15]/70 md:backdrop-blur-xl overflow-hidden card-rim-light transition-colors duration-300"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}

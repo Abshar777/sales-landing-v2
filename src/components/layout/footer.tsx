@@ -44,7 +44,7 @@ export default function Footer() {
     
 
       {/* Footer card */}
-      <div className="footer-card relative max-w-6xl mx-auto rounded-[2.2rem] border border-blue-400/15 bg-[#050a15]/80 backdrop-blur-2xl overflow-hidden card-rim-light">
+      <div className="footer-card relative max-w-6xl mx-auto rounded-[2.2rem] border border-blue-400/15 bg-[#050a15]/80 md:backdrop-blur-2xl overflow-hidden card-rim-light">
         {/* Subtle card glare */}
         <div className="absolute inset-0 card-glare pointer-events-none opacity-40" />
         {/* Animated grid overlay */}
@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
             <a
               href="#"
-              className="footer-btn inline-flex items-center gap-2.5 self-start px-5 py-2.5 rounded-full border border-blue-400/20 bg-blue-500/5 backdrop-blur-md text-sm font-semibold text-white hover:bg-blue-500/15 hover:border-blue-400/40 transition-colors duration-300 group"
+              className="footer-btn inline-flex items-center gap-2.5 self-start px-5 py-2.5 rounded-full border border-blue-400/20 bg-blue-500/5 md:backdrop-blur-md text-sm font-semibold text-white hover:bg-blue-500/15 hover:border-blue-400/40 transition-colors duration-300 group"
             >
               Join Delta
               <span className="w-5 h-5 rounded-full bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300">
