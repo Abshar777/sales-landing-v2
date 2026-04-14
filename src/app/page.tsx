@@ -44,7 +44,7 @@ export default function Home() {
           <PricingSection />
           <TestimonialsSection/>
           <FAQSection />
-          {init && (
+          {/* {init && (
             <Particles
               id="tsparticles"
               className="absolute inset-0 pointer-events-none z-0 opacity-50"
@@ -84,7 +84,7 @@ export default function Home() {
                 fullScreen: { enable: false },
               }}
             />
-          )}
+          )} */}
         </div>}
       {heroReady && <Footer />}
       </>
