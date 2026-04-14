@@ -206,7 +206,7 @@ export default function FeaturesSection() {
             </div>
              
             {/* Bottom Glare Effect */}
-            <div className="bottom-glare-effect absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] bottom-glare pointer-events-none z-0" />
+            <div className="bottom-glare-effect absolute bottom-0 left-1/2 w-full -translate-x-1/2 h-[500px] bottom-glare pointer-events-none z-0" />
         </section>
     );
 }
