@@ -14,7 +14,6 @@ import ComparisonSection from "@/components/page-sections/comparison";
 import WhyNowSection from "@/components/page-sections/whynow";
 import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
-import SmoothScroll from "@/components/layout/smooth-scroll";
 
 
 export default function Home() {
@@ -36,7 +35,7 @@ export default function Home() {
   // }, []);
   return (
     <>
-      <SmoothScroll />
+    
       {!preloaderGone && (
         <Preloader
           onExitStart={() => setHeroReady(true)}
