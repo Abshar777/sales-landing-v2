@@ -224,7 +224,8 @@ export default function Preloader({ onExitStart, onComplete }: Props) {
         {/* Logo */}
         <div className="pre-logo flex items-center gap-4">
           <div className="p-3 rounded-2xl bg-blue-500/10 border border-blue-400/20 shadow-[0_0_40px_rgba(59,130,246,0.15)]">
-            <img src="/logo.webp" alt="Delta" className="w-10 h-10 object-contain" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.webp" alt="Delta" width={40} height={40} className="object-contain" />
           </div>
           <div>
             <div className="text-xl md:text-2xl font-bold tracking-tight text-white">Delta</div>

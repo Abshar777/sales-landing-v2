@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -57,7 +58,7 @@ export default function Footer() {
           {/* LEFT — Brand + CTA */}
           <div className="flex flex-col gap-5 min-w-[180px]">
             <div className="flex items-center gap-3">
-              <img src="/logo.webp" alt="Delta" className="w-10 h-10 object-contain" />
+              <Image src="/logo.webp" alt="Delta" width={40} height={40} className="object-contain" />
               <span className="footer-brand text-3xl font-bold tracking-tight text-white">Delta</span>
             </div>
             <a

@@ -169,9 +169,10 @@ export default function PricingSection() {
                                     loop
                                     controls={false}
                                     muted
-                                    autoPlay={true}
+                                    autoPlay
+                                    playsInline
+                                    preload="none"
                                     className="w-full h-full object-cover opacity-70 group-hover/video:scale-105 transition-transform duration-1000"
-                                // referrerPolicy="no-referrer"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                                 <div className="absolute inset-0 flex items-center justify-center">

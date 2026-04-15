@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Menu, X } from 'lucide-react';
@@ -122,7 +123,7 @@ const Nav = () => {
       >
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img src="/logo.webp" alt="logo" className="w-10 md:w-12" />
+          <Image src="/logo.webp" alt="Delta logo" width={48} height={48} className="w-10 md:w-12 h-auto" priority />
         </div>
 
         {/* Desktop nav links */}

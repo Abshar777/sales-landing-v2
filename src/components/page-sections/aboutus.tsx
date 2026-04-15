@@ -6,6 +6,7 @@ import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TrendingUp } from 'lucide-react';
 import { MdArrowOutward } from 'react-icons/md';
+import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -83,10 +84,13 @@ export default function TradingTeamSection() {
 
               {/* Image panel */}
               <div className="relative w-full lg:w-[45%] flex-shrink-0 min-h-[260px] sm:min-h-[320px] lg:min-h-0">
-                <img
+                <Image
                   src="/g4.webp"
                   alt="Delta International Institute"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover object-top"
+                  priority
                 />
                 {/* Gradient fade — bottom on mobile, right on desktop */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#050a15]" />
@@ -104,7 +108,7 @@ export default function TradingTeamSection() {
                 <div>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="p-2 rounded-xl bg-blue-500/10 border border-blue-400/20">
-                      <img src="/logo.webp" alt="Delta" className="w-7 h-7 object-contain" />
+                      <Image src="/logo.webp" alt="Delta" width={28} height={28} className="object-contain" />
                     </div>
                     <div>
                       <h3 className="text-lg md:text-xl font-bold leading-tight">Delta International Institute</h3>
