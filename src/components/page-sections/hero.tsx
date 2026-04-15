@@ -127,7 +127,7 @@ const Hero = () => {
                     {/* Video section */}
                     <div className="relative mt-20 md:mt-24 w-full flex items-center justify-center">
                         {/* Floating badge */}
-                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 md:backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
+                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
                             <div className="border rounded-xl p-1.5 md:p-2 border-white/10">
                                 <Image src="/logo.webp" alt="Delta" width={40} height={40} className="w-7 md:w-10 h-auto object-cover" />
                             </div>
