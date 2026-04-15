@@ -153,7 +153,7 @@ export default function PricingSection() {
                         </div>
                     </div>
                     {/* Right Card: Testimonial/Video */}
-                     <div className="p-1 pricing-card rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 md:backdrop-blur-2xl">
+                     <div className="p-1 md:block hidden pricing-card rounded-[3rem] border border-blue-500/15 bg-[#050a15]/60 md:backdrop-blur-2xl">
                     <div className=" group relative rounded-[3rem]  p-4 border border-white/10 bg-[#050a15]/60 md:backdrop-blur-2xl overflow-hidden flex flex-col card-rim-light">
                         {/* Grid Background */}
                         <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-20 pointer-events-none" />
