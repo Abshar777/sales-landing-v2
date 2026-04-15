@@ -36,7 +36,7 @@ export default function Home() {
   // }, []);
   return (
     <>
-      {/* <SmoothScroll /> */}
+      <SmoothScroll />
       {!preloaderGone && (
         <Preloader
           onExitStart={() => setHeroReady(true)}

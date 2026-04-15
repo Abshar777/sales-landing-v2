@@ -27,7 +27,7 @@ export default function FeaturesSection() {
     useGSAP(() => {
         const subtitleSplit = SplitText.create('.feature-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({
             scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -42,7 +42,7 @@ export default function FeaturesSection() {
                 opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
             }, '-=0.55')
             .from('.feature-card', {
-                opacity: 0, y: 90, rotateX: 18, ...f(10), stagger: 0.18, duration: 1.2,
+                opacity: 0, y: 90, ...f(10), stagger: 0.18, duration: 1.2,
             }, '-=0.5')
             .from('.bottom-glare-effect', {
                 scale: 0.4,

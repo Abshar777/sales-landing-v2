@@ -15,7 +15,7 @@ export default function PricingSection() {
     useGSAP(() => {
         const subtitleSplit = SplitText.create('.pricing-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({
             scrollTrigger: { trigger: container.current, start: 'top 82%' },
@@ -165,7 +165,7 @@ export default function PricingSection() {
                             {/* Video Thumbnail */}
                             <div className="relative aspect-video rounded-4xl overflow-hidden border border-blue-400/10 mb-12 group/video shadow-2xl">
                                 <video
-                                    // src="/video/hero.mp4"
+                                    src="/video/hero.mp4"
                                     loop
                                     controls={false}
                                     muted

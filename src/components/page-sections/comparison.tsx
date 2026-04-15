@@ -68,7 +68,7 @@ export default function ComparisonSection() {
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative py-32 overflow-hidden">
+        <section ref={container} className="relative py-10 overflow-hidden">
             {/* Ambient glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[700px] bg-blue-600/5 blur-[140px] pointer-events-none" />
             <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-700/8 blur-[100px] pointer-events-none rounded-full" />

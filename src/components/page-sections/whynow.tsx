@@ -68,16 +68,18 @@ export default function WhyNowSection() {
 
     return (
         <section ref={container} className="relative pt-32 pb-24 overflow-hidden">
-            {/* Background glow — same as features */}
-            {/* <div className="bottom-glare-effect absolute bottom-0 left-1/2 w-full -translate-x-1/2 h-[500px] bottom-glare pointer-events-none z-0" /> */}
+            {/* Red ambient glows */}
+            {/* <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] rounded-full bg-red-600/15 blur-[120px] pointer-events-none" />
+            <div className="absolute top-[30%] right-[-8%] w-[400px] h-[400px] rounded-full bg-red-500/10 blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-[10%] left-[20%] w-[350px] h-[350px] rounded-full bg-red-700/12 blur-[90px] pointer-events-none" /> */}
 
             {/* Heading */}
             <div className="max-w-4xl mx-auto px-6 text-center mb-24">
-                <div className="wn-tag inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-[10px] font-bold text-blue-300 uppercase tracking-[0.18em]">
+                {/* <div className="wn-tag inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-[10px] font-bold text-blue-300 uppercase tracking-[0.18em]">
                     <Flame className="w-3 h-3 text-orange-400" />
                     Limited Time Offer
-                </div>
-                <h2 className="font-medium text-4xl sm:text-6xl">
+                </div> */}
+                <h2 className="font-medium text-[2.2rem] sm:text-5xl md:text-6xl leading-[1.1]">
                     <span className="wn-line-1 block bg-gradient-to-b from-blue-100 to-blue-200 bg-clip-text text-transparent">
                         Why Now Is The
                     </span>
@@ -86,13 +88,13 @@ export default function WhyNowSection() {
                         <span className="inline-flex mt-2 items-center justify-center w-12 h-12 sm:w-10 sm:h-10 md:w-13 md:h-13 bg-linear-30 from-white to-blue-200 rounded-2xl rotate-[-10deg] shadow-2xl flex-shrink-0">
                             <MdOutlineTimer className="text-blue-900 font-bold text-2xl" />
                         </span>
-                        Time To Invest
+                        Time 
                     </span>
                 </h2>
             </div>
 
             {/* Cards — exact same structure as FeaturesSection */}
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
 
                 {/* Card 1: Geopolitical Uncertainty */}
                 <div className="card h-full wn-card rounded-[2.5rem] p-1 border border-blue-400/15 md:backdrop-blur-xl">
@@ -218,7 +220,65 @@ export default function WhyNowSection() {
                 </div>
             </div>
 
-         
+            {/* Urgency CTA block — immersive full-bleed */}
+            <div className="wn-urgency mt-12 p-2 md:mt-20 relative z-10 overflow-hidden">
+                {/* Deep gradient backdrop */}
+                <div className="relative bg-gradient-to-br rounded-4xl from-[#0a1628] via-[#060d1f] to-[#010406] border-y border-blue-400/10 py-16 md:py-24 px-4 md:px-10 overflow-hidden">
+                    {/* Ambient orbs */}
+                    <div className="absolute -top-32 left-1/4 w-80 h-80 rounded-full bg-blue-600/20 blur-[80px] pointer-events-none" />
+                    <div className="absolute -bottom-32 right-1/4 w-72 h-72 rounded-full bg-indigo-600/15 blur-[80px] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-blue-500/8 blur-[60px] pointer-events-none" />
+
+                    {/* Top rim light */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
+
+                    <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center gap-7">
+                        {/* Urgency badge */}
+                        {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/15 border border-orange-400/30 text-[10px] font-bold text-orange-300 uppercase tracking-[0.2em]">
+                            <Lock className="w-3 h-3" />
+                            Price Has Never Been Offered Before
+                        </div> */}
+
+                        {/* Headline */}
+                        <div className="space-y-2">
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                                <span className="bg-gradient-to-b from-white to-blue-100 bg-clip-text text-transparent">
+                                    This Discount Ends
+                                </span>
+                                <br />
+                                <span className="bg-gradient-to-r from-orange-300 via-orange-200 to-yellow-200 bg-clip-text text-transparent">
+                                    March 31 — Forever.
+                                </span>
+                            </h3>
+                            <p className="text-blue-200/60 text-sm md:text-base leading-relaxed max-w-lg mx-auto pt-2">
+                                Delta has never offered this level of discount before. Once it ends, it&apos;s gone — no extensions, no exceptions.
+                            </p>
+                        </div>
+
+                        {/* Deadline pill */}
+                        <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/4 border border-white/8 backdrop-blur-sm">
+                            <span className="w-2 h-2 rounded-full bg-red-900 animate-pulse flex-shrink-0" />
+                            <span className="text-xs md:text-sm font-semibold text-blue-100">
+                                Secure your seat before <span className="text-white font-bold">March 31</span>
+                            </span>
+                        </div>
+
+                        {/* CTA */}
+                        <div className="wn-cta flex flex-col sm:flex-row items-center gap-4 pt-2">
+                            <button className="cursor-pointer bg-gradient-to-b from-white to-blue-100 text-black font-bold text-sm px-10 py-4 rounded-full flex items-center gap-3 hover:scale-105 active:scale-95 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.2),0_20px_60px_rgba(59,130,246,0.3)]">
+                                Start Now
+                                <span className="w-7 h-7 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+                                    <ArrowRight className="w-4 h-4 text-white" />
+                                </span>
+                            </button>
+                            <span className="text-xs text-blue-300/40 font-medium">No hidden fees · Cancel anytime</span>
+                        </div>
+                    </div>
+
+                    {/* Bottom rim */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+                </div>
+            </div>
         </section>
     );
 }

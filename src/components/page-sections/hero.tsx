@@ -23,7 +23,7 @@ const Hero = () => {
         // ─────────────────────────────────────────────────────────────────────
         const subtitleSplit = SplitText.create('.hero-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? {} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
@@ -80,9 +80,9 @@ const Hero = () => {
         <div ref={container} className='w-full min-h-[100vh] py-2 px-2'>
             <div className="rounded-3xl flex flex-col pb-10 overflow-hidden relative h-full w-full">
                 {/* Background blobs */}
-                <div className="absolute inset-0 h-[70vh] w-[120vw] hero-gradiant  top-[-30%] rounded-full md:opacity-100 opacity-70 md:blur-[12rem] blur-[6rem]" />
-                <div className="absolute inset-0 h-[40vh] w-[40vw] hero-gradiant  top-[100%] left-[-20%] rounded-full md:blur-[12rem] blur-[6rem]" />
-                <div className="absolute inset-0 h-[40vh] w-[40vw] hero-gradiant  top-[100%] left-[80%] rounded-full md:blur-[12rem] blur-[6rem]" />
+                <div className="absolute inset-0 h-[70vh] w-[120vw] hero-gradiant  top-[-30%] rounded-full md:opacity-100 opacity-50 md:blur-[12rem] blur-[3rem]" />
+                <div className="absolute inset-0 h-[40vh] w-[40vw] hero-gradiant  top-[100%] left-[-20%] rounded-full md:blur-[12rem] blur-[3rem]" />
+                <div className="absolute inset-0 h-[40vh] w-[40vw] hero-gradiant  top-[100%] left-[80%] rounded-full md:blur-[12rem] blur-[3rem]" />
 
                 <main className="relative z-10 flex flex-col pt-36 md:pt-50 items-center text-center w-full max-w-4xl mx-auto px-4">
                     {/* Badge */}
