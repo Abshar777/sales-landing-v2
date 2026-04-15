@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import PricingSection from "@/components/page-sections/pricing";
 import TestimonialsSection from "@/components/page-sections/testimonials";
 import FAQSection from "@/components/page-sections/faq";
+import ComparisonSection from "@/components/page-sections/comparison";
 import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
 
@@ -46,6 +47,7 @@ export default function Home() {
         <TradingTeamSection />
         <PricingSection />
         <TestimonialsSection />
+        <ComparisonSection />
         <FAQSection />
         {init && (
           <Particles
