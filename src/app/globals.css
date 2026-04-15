@@ -31,6 +31,11 @@ body {
 }
 
 
+
+.hero-gradiant{
+  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.5), rgba(37, 99, 235, 0.2));
+}
+
 .grid-pattern {
   background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -114,10 +119,7 @@ body {
    Strip it completely on mobile — card backgrounds are opaque enough without it.
    ──────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
-  * {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
+ 
 
   /* Kill ALL looping CSS animations on mobile — saves significant GPU */
   .animate-grid-move,
@@ -132,9 +134,7 @@ body {
   }
 
   /* Reduce expensive blur glows to nothing on mobile */
-  [class*="blur-["] {
-    filter: none !important;
-  }
+  
 }
 
 /* Prevent SplitText word-wrap overflow during animation */
