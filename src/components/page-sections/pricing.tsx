@@ -33,7 +33,7 @@ export default function PricingSection() {
                 opacity: 0, y: 24, ...f(8), duration: 0.8,
             }, '-=0.4')
             .from('.pricing-card', {
-                opacity: 0, y: 90, rotateX: 16, ...f(10), transformPerspective: 900, stagger: 0.18, duration: 1.2,
+                opacity: 0, y: 90, ...f(10),stagger: 0.18, duration: 1.2,
             }, '-=0.5');
 
         return () => { try { subtitleSplit.revert(); } catch(e) {} };
@@ -165,7 +165,7 @@ export default function PricingSection() {
                             {/* Video Thumbnail */}
                             <div className="relative aspect-video rounded-4xl overflow-hidden border border-blue-400/10 mb-12 group/video shadow-2xl">
                                 <video
-                                    src="/video/hero.mp4"
+                                    // src="/video/hero.mp4"
                                     loop
                                     controls={false}
                                     muted

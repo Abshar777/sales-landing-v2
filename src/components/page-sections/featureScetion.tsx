@@ -42,7 +42,7 @@ export default function FeaturesSection() {
                 opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
             }, '-=0.55')
             .from('.feature-card', {
-                opacity: 0, y: 90, rotateX: 18, ...f(10), transformPerspective: 900, stagger: 0.18, duration: 1.2,
+                opacity: 0, y: 90, rotateX: 18, ...f(10), stagger: 0.18, duration: 1.2,
             }, '-=0.5')
             .from('.bottom-glare-effect', {
                 scale: 0.4,
@@ -52,20 +52,20 @@ export default function FeaturesSection() {
             }, '-=1');
 
         // Interactive Tilt Effect
-        const cards = gsap.utils.toArray<HTMLElement>('.feature-card');
-        cards.forEach((card) => {
-            card.addEventListener('mousemove', (e: MouseEvent) => {
-                const rect = card.getBoundingClientRect();
-                const rotateX = (e.clientY - rect.top  - rect.height / 2) / 10;
-                const rotateY = (rect.width  / 2 - (e.clientX - rect.left)) / 10;
-                gsap.to(card, { rotateX, rotateY, duration: 0.5, ease: 'power2.out', transformPerspective: 1000 });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power2.out' });
-            });
-        });
+        // const cards = gsap.utils.toArray<HTMLElement>('.feature-card');
+        // cards.forEach((card) => {
+        //     card.addEventListener('mousemove', (e: MouseEvent) => {
+        //         const rect = card.getBoundingClientRect();
+        //         const rotateX = (e.clientY - rect.top  - rect.height / 2) / 10;
+        //         const rotateY = (rect.width  / 2 - (e.clientX - rect.left)) / 10;
+        //         gsap.to(card, { rotateX, rotateY, duration: 0.5, ease: 'power2.out', transformPerspective: 1000 });
+        //     });
+        //     card.addEventListener('mouseleave', () => {
+        //         gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power2.out' });
+        //     });
+        // });
 
-        return () => { try { subtitleSplit.revert(); } catch(e) {} };
+        // return () => { try { subtitleSplit.revert(); } catch(e) {} };
     }, { scope: container });
 
 

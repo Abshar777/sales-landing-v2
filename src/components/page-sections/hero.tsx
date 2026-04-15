@@ -7,8 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LuTrendingUp } from "react-icons/lu";
 import { MdArrowOutward, MdPlayArrow } from 'react-icons/md';
 import Image from 'next/image';
-import AboutUs from "@/../public/aboutus.png"
-import Logo from "@/../public/logo.webp"
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -25,7 +23,7 @@ const Hero = () => {
         // ─────────────────────────────────────────────────────────────────────
         const subtitleSplit = SplitText.create('.hero-subtitle', { type: 'words' });
         const mob = window.matchMedia('(max-width: 767px)').matches;
-        const f = (px: number) => mob ? { filter: `blur(${px}px)` } : { filter: `blur(${px}px)` };
+        const f = (px: number) => mob ? {filter: `blur(${px}px)`} : { filter: `blur(${px}px)` };
 
         const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
@@ -129,9 +127,9 @@ const Hero = () => {
                     {/* Video section */}
                     <div className="relative mt-20 md:mt-24 w-full flex items-center justify-center">
                         {/* Floating badge */}
-                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
+                        <div className="floating-badge absolute -top-7 left-1/2 -translate-x-1/2 z-20 px-3 md:px-5 py-2 md:py-2.5 rounded-[1.25rem] bg-blue-600/10 border border-blue-200/10 md:backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl w-[max-content] max-w-[90vw]">
                             <div className="border rounded-xl p-1.5 md:p-2 border-white/10">
-                                <Image src={Logo} alt="Delta" width={40} height={40} className="w-7 md:w-10 h-auto object-cover" />
+                                <Image src="/logo.webp" alt="Delta" width={40} height={40} className="w-7 md:w-10 h-auto object-cover" />
                             </div>
                             <div className="text-left">
                                 <div className="text-xs md:text-sm font-bold">Delta International Institute</div>
@@ -140,7 +138,7 @@ const Hero = () => {
                         </div>
 
                         <div className="hero-video-container p-1.5 md:p-2 bg-blue-600/10 border border-blue-200/10 relative w-full md:w-[80vw] max-w-5xl rounded-3xl md:rounded-4xl overflow-hidden">
-                            <Image src={AboutUs} alt="Delta Trading Studio" className="w-full h-auto rounded-3xl md:rounded-4xl object-cover opacity-80" priority />
+                            <img src="/aboutus.png" alt="Studio" className="w-full h-full rounded-3xl md:rounded-4xl object-cover opacity-80" referrerPolicy="no-referrer" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <button className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/5 md:backdrop-blur-xl border border-white/10 flex items-center justify-center hover:scale-110 transition-transform duration-700">

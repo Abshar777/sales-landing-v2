@@ -14,6 +14,7 @@ import ComparisonSection from "@/components/page-sections/comparison";
 import WhyNowSection from "@/components/page-sections/whynow";
 import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
+import SmoothScroll from "@/components/layout/smooth-scroll";
 
 
 export default function Home() {
@@ -24,17 +25,18 @@ export default function Home() {
   const [preloaderGone, setPreloaderGone] = useState(false);
   const mob = typeof window !== "undefined" ? window.matchMedia('(max-width: 767px)').matches : false;
 
-  useEffect(() => {
-    if (!mob) {
-      initParticlesEngine(async (engine: Engine) => {
-        await loadSlim(engine);
-      }).then(() => {
-        setInit(true);
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!mob) {
+  //     initParticlesEngine(async (engine: Engine) => {
+  //       await loadSlim(engine);
+  //     }).then(() => {
+  //       setInit(true);
+  //     });
+  //   }
+  // }, []);
   return (
     <>
+      {/* <SmoothScroll /> */}
       {!preloaderGone && (
         <Preloader
           onExitStart={() => setHeroReady(true)}
@@ -46,12 +48,12 @@ export default function Home() {
       {heroReady && <div className="relative">
         <FeaturesSection />
         <TradingTeamSection />
-        <WhyNowSection />
+      <WhyNowSection />
         <PricingSection />
         <TestimonialsSection />
         <ComparisonSection />
         <FAQSection />
-        {init && (
+        {/* {init && (
           <Particles
             id="tsparticles"
             className="absolute inset-0 pointer-events-none z-0 opacity-50"
@@ -91,7 +93,7 @@ export default function Home() {
               fullScreen: { enable: false },
             }}
           />
-        )}
+        )} */}
       </div>}
       {heroReady && <Footer />}
     </>

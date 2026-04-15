@@ -24,7 +24,7 @@ export default function Footer() {
 
     tl
       .from('.footer-card', {
-        opacity: 0, y: 60, rotateX: 12, ...f(14), transformPerspective: 900, duration: 1.2,
+        opacity: 0, y: 60, rotateX: 12, ...f(14), duration: 1.2,
       })
       .from(brandSplit.chars, {
         opacity: 0, y: 30, ...f(8), stagger: { amount: 0.35 }, duration: 0.9,

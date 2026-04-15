@@ -96,9 +96,16 @@ body {
   }
 }
 
-/* Smooth scroll & animation performance */
-html {
-  scroll-behavior: smooth;
+/* Let GSAP manage scroll — browser smooth-scroll conflicts with ScrollTrigger */
+/* html { scroll-behavior: smooth; } — intentionally disabled */
+
+/* Promote section background glows to their own compositing layer so they
+   don't trigger repaints on the rest of the page */
+.card-glow-bottom,
+.card-glare,
+.card-grid-pattern {
+  will-change: auto;
+  contain: layout style paint;
 }
 
 /* ── iOS / Mobile performance ─────────────────────────────────────────────
@@ -112,8 +119,10 @@ html {
     -webkit-backdrop-filter: none !important;
   }
 
-  /* Pause expensive looping CSS animations on mobile */
-  .animate-grid-move {
+  /* Kill ALL looping CSS animations on mobile — saves significant GPU */
+  .animate-grid-move,
+  .animate-spin-slow,
+  .animate-pulse {
     animation: none !important;
   }
 
@@ -122,9 +131,9 @@ html {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Stop spinning ring on feature card — expensive on mobile */
-  .animate-spin-slow {
-    animation: none !important;
+  /* Reduce expensive blur glows to nothing on mobile */
+  [class*="blur-["] {
+    filter: none !important;
   }
 }
 

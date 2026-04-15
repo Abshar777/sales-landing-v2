@@ -148,8 +148,8 @@ function VideoCard({ src }: { src: string }) {
 function Avatar({ name, gradient }: { name: string; gradient: string }) {
   const initials = name.split(' ').slice(0, 2).map(n => n[0]).join('');
   return (
-    <div className={`relative w-10 h-10 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(59,130,246,0.4)]`}>
-      <span className="text-[11px] font-bold text-white">{initials}</span>
+    <div className={`relative w-10 h-10 rounded-full bg-linear-30 from-white to-blue-200 flex items-center justify-center flex-shrink-0 `}>
+      <span className="text-[11px] font-bold text-blue-900">{initials}</span>
     </div>
   );
 }
@@ -176,7 +176,7 @@ export default function TestimonialsSection() {
         opacity: 0, y: 24, ...f(8), stagger: 0.04, duration: 0.85,
       }, '-=0.55')
       .from('.test-card', {
-        opacity: 0, y: 80, rotateX: 16, ...f(10), transformPerspective: 900, stagger: 0.12, duration: 1.1,
+        opacity: 0, y: 80,  ...f(10),  stagger: 0.12, duration: 1.1,
       }, '-=0.5');
 
     return () => { try { subtitleSplit.revert(); } catch (e) { } };

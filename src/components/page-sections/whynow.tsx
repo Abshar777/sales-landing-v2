@@ -4,37 +4,10 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Globe2, Clock3, TrendingDown, ArrowRight, Flame, Lock } from 'lucide-react';
+import { ArrowRight, Flame, Lock, TrendingUp } from 'lucide-react';
 import { MdOutlineTimer } from 'react-icons/md';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
-
-const reasons = [
-    {
-        icon: Globe2,
-        title: 'Geopolitical Uncertainty = Trading Opportunity',
-        body: 'Opportunities are there whether you are ready or not. The question is — will you profit from them?',
-        accent: 'from-blue-500/20 to-blue-700/5',
-        border: 'border-blue-400/20',
-        glow: 'rgba(59,130,246,0.15)',
-    },
-    {
-        icon: Clock3,
-        title: 'Forex Runs 24 Hours a Day',
-        body: 'Your income is not limited by time or location. Trade from anywhere, any time, on your own terms.',
-        accent: 'from-indigo-500/20 to-indigo-700/5',
-        border: 'border-indigo-400/20',
-        glow: 'rgba(99,102,241,0.15)',
-    },
-    {
-        icon: TrendingDown,
-        title: 'Your Savings Are Losing Value',
-        body: 'Inflation erodes your cash daily. Trading gives you a way to grow it with skill — not just hope.',
-        accent: 'from-blue-600/20 to-blue-800/5',
-        border: 'border-blue-300/20',
-        glow: 'rgba(147,197,253,0.1)',
-    },
-];
 
 export default function WhyNowSection() {
     const container = useRef<HTMLDivElement>(null);
@@ -53,155 +26,199 @@ export default function WhyNowSection() {
                 opacity: 0, y: 55, ...f(14), stagger: 0.16, duration: 1.0,
             })
             .from('.wn-card', {
-                opacity: 0, y: 80, rotateX: 14, ...f(10), transformPerspective: 900, stagger: 0.15, duration: 1.1,
+                opacity: 0, y: 90, ...f(10), stagger: 0.18, duration: 1.2,
             }, '-=0.55')
             .from('.wn-urgency', {
-                opacity: 0, y: 60, ...f(14), duration: 1.1,
+                opacity: 0, y: 60, ...f(12), duration: 1.1,
             }, '-=0.5')
-            .from(['.wn-u-line', '.wn-u-badge'], {
-                opacity: 0, y: 28, ...f(8), stagger: 0.1, duration: 0.8,
-            }, '-=0.7')
             .from('.wn-cta', {
-                opacity: 0, scale: 0.92, ...f(8), duration: 0.75,
-            }, '-=0.5');
+                opacity: 0, scale: 0.92, duration: 0.7,
+            }, '-=0.4');
 
-        // Tilt on cards
-        const cards = gsap.utils.toArray<HTMLElement>('.wn-card');
-        cards.forEach((card) => {
-            card.addEventListener('mousemove', (e: MouseEvent) => {
-                const rect = card.getBoundingClientRect();
-                const rotateX = ((e.clientY - rect.top) - rect.height / 2) / 14;
-                const rotateY = (rect.width / 2 - (e.clientX - rect.left)) / 14;
-                gsap.to(card, { rotateX, rotateY, duration: 0.5, ease: 'power2.out', transformPerspective: 1000 });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power2.out' });
-            });
-        });
+        // Tilt — scoped to container, RAF-throttled
+        // const cards = gsap.utils.toArray<HTMLElement>('.wn-card', container.current);
+        // const cleanups: (() => void)[] = [];
+        // cards.forEach((card) => {
+        //     let rafId = 0;
+        //     const onMove = (e: MouseEvent) => {
+        //         cancelAnimationFrame(rafId);
+        //         rafId = requestAnimationFrame(() => {
+        //             const rect = card.getBoundingClientRect();
+        //             const rotateX = ((e.clientY - rect.top) - rect.height / 2) / 18;
+        //             const rotateY = (rect.width / 2 - (e.clientX - rect.left)) / 18;
+        //             gsap.to(card, { rotateX, rotateY, duration: 0.5, ease: 'power2.out', transformPerspective: 1000 });
+        //         });
+        //     };
+        //     const onLeave = () => {
+        //         cancelAnimationFrame(rafId);
+        //         gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: 'power2.out' });
+        //     };
+        //     card.addEventListener('mousemove', onMove);
+        //     card.addEventListener('mouseleave', onLeave);
+        //     cleanups.push(() => {
+        //         card.removeEventListener('mousemove', onMove);
+        //         card.removeEventListener('mouseleave', onLeave);
+        //     });
+        // });
 
-        return () => { try { ScrollTrigger.getAll().forEach(t => t.kill()); } catch (e) { } };
+        // return () => { 
+        //     tl.kill();
+        //  };
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative py-32 overflow-hidden">
-            {/* Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[600px] bg-[radial-gradient(ellipse,rgba(37,99,235,0.12),transparent_70%)] pointer-events-none" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-[radial-gradient(ellipse,rgba(37,99,235,0.08),transparent_70%)] pointer-events-none" />
+        <section ref={container} className="relative pt-32 pb-24 overflow-hidden">
+            {/* Background glow — same as features */}
+            {/* <div className="bottom-glare-effect absolute bottom-0 left-1/2 w-full -translate-x-1/2 h-[500px] bottom-glare pointer-events-none z-0" /> */}
 
-            <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-
-                {/* Heading */}
-                <div className="max-w-4xl mx-auto text-center mb-20">
-                    <div className="wn-tag inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-[10px] font-bold text-blue-300 uppercase tracking-[0.18em]">
-                        <Flame className="w-3 h-3 text-orange-400" />
-                        Limited Time Offer
-                    </div>
-                    <h2 className="font-medium text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-6">
-                        <span className="wn-line-1 block bg-gradient-to-b from-blue-100 to-blue-200 bg-clip-text text-transparent">
-                            Why Now Is The Right
-                        </span>
-                        <span className="wn-line-2 flex flex-wrap items-center justify-center gap-3 bg-gradient-to-b from-blue-100 to-blue-200 bg-clip-text text-transparent">
-                            Time To
-                            <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-linear-30 from-white to-blue-200 rounded-2xl rotate-[-10deg] shadow-2xl flex-shrink-0">
-                                <MdOutlineTimer className="text-blue-900 font-bold text-2xl md:text-3xl" />
-                            </span>
-                            Invest
-                        </span>
-                    </h2>
+            {/* Heading */}
+            <div className="max-w-4xl mx-auto px-6 text-center mb-24">
+                <div className="wn-tag inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-[10px] font-bold text-blue-300 uppercase tracking-[0.18em]">
+                    <Flame className="w-3 h-3 text-orange-400" />
+                    Limited Time Offer
                 </div>
+                <h2 className="font-medium text-4xl sm:text-6xl">
+                    <span className="wn-line-1 block bg-gradient-to-b from-blue-100 to-blue-200 bg-clip-text text-transparent">
+                        Why Now Is The
+                    </span>
+                    <span className="wn-line-2 flex items-center justify-center gap-3 bg-gradient-to-b from-blue-100 to-blue-200 bg-clip-text text-transparent">
+                        Right
+                        <span className="inline-flex mt-2 items-center justify-center w-12 h-12 sm:w-10 sm:h-10 md:w-13 md:h-13 bg-linear-30 from-white to-blue-200 rounded-2xl rotate-[-10deg] shadow-2xl flex-shrink-0">
+                            <MdOutlineTimer className="text-blue-900 font-bold text-2xl" />
+                        </span>
+                        Time To Invest
+                    </span>
+                </h2>
+            </div>
 
-                {/* Reason Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                    {reasons.map((r, i) => {
-                        const Icon = r.icon;
-                        return (
-                            <div key={i} className="wn-card rounded-[2rem] p-[1px] border border-blue-400/15">
-                                <div className={`group relative rounded-[2rem] p-7 border ${r.border} bg-[#050a15]/80 md:backdrop-blur-xl overflow-hidden h-full flex flex-col`}>
-                                    {/* Inner glow */}
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${r.accent} opacity-60 pointer-events-none`} />
-                                    <div className="absolute inset-0 card-glow-bottom opacity-70 pointer-events-none" />
+            {/* Cards — exact same structure as FeaturesSection */}
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
 
-                                    <div className="relative z-10 flex flex-col h-full">
-                                        {/* Number */}
-                                        <div className="text-[10px] font-bold text-blue-400/50 uppercase tracking-[0.25em] mb-5">
-                                            0{i + 1}
+                {/* Card 1: Geopolitical Uncertainty */}
+                <div className="card h-full wn-card rounded-[2.5rem] p-1 border border-blue-400/15 md:backdrop-blur-xl">
+                    <div className="group h-full relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                        <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
+
+                        {/* Geo-event graphic */}
+                        <div className="relative h-56 w-full mb-8 flex items-center justify-center">
+                            <div className="relative w-full max-w-[200px]">
+                                {/* Central globe ring */}
+                                <div className="relative w-20 h-20 rounded-full border border-blue-400/20 bg-blue-600/10 flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                                    <div className="absolute inset-0 rounded-full border-t border-blue-400/40 animate-spin-slow" />
+                                    <span className="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Global</span>
+                                </div>
+                                {/* Event chips */}
+                                <div className="flex flex-wrap justify-center gap-2">
+                                    {[
+                                        { label: 'OPEC ↓', color: 'border-orange-400/30 text-orange-300/80 bg-orange-500/8' },
+                                        { label: 'FED ↑', color: 'border-blue-400/30 text-blue-300 bg-blue-500/10' },
+                                        { label: 'CONFLICT', color: 'border-red-400/30 text-red-300/80 bg-red-500/8' },
+                                    ].map(({ label, color }) => (
+                                        <div key={label} className={`px-2.5 py-1 rounded-full border text-[9px] font-bold uppercase tracking-widest ${color}`}>
+                                            {label}
                                         </div>
-
-                                        {/* Icon */}
-                                        <div className="w-11 h-11 rounded-2xl bg-blue-600/15 border border-blue-400/20 flex items-center justify-center mb-6 group-hover:bg-blue-600/25 group-hover:border-blue-400/40 transition-all duration-300">
-                                            <Icon className="w-5 h-5 text-blue-300" />
-                                        </div>
-
-                                        {/* Text */}
-                                        <h3 className="font-bold text-base md:text-lg text-blue-50 leading-snug mb-3">
-                                            {r.title}
-                                        </h3>
-                                        <p className="text-sm text-blue-200/60 leading-relaxed flex-1">
-                                            {r.body}
-                                        </p>
+                                    ))}
+                                </div>
+                                {/* Opportunity arrow */}
+                                <div className="mt-4 flex items-center justify-center gap-2">
+                                    <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-400/40" />
+                                    <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/20">
+                                        <TrendingUp className="w-3 h-3 text-blue-300" />
+                                        <span className="text-[9px] font-bold text-blue-300 uppercase tracking-widest">Opportunity</span>
                                     </div>
+                                    <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-400/40" />
                                 </div>
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {/* Urgency block */}
-                <div className="wn-urgency rounded-[2.5rem] p-[1px] border border-blue-400/20 bg-gradient-to-b from-blue-400/15 to-transparent">
-                    <div className="relative rounded-[2.5rem] overflow-hidden border border-blue-400/10 bg-[#050a15]/90 md:backdrop-blur-2xl">
-
-                        {/* Top grid decoration */}
-                        <div className="absolute inset-0 card-grid-pattern animate-grid-move opacity-10 pointer-events-none" />
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
-
-                        <div className="relative z-10 px-6 md:px-14 py-12 md:py-14 flex flex-col items-center text-center gap-8">
-
-                            {/* Headline */}
-                            <div className="space-y-3">
-                                <div className="wn-u-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-400/20 text-[10px] font-bold text-orange-300 uppercase tracking-[0.18em]">
-                                    <Lock className="w-3 h-3" />
-                                    Price Has Never Been Offered Before
-                                </div>
-                                <h3 className="wn-u-line text-3xl md:text-4xl font-bold text-white leading-tight">
-                                    This Price Has Never Been Offered Before
-                                </h3>
-                                <p className="wn-u-line text-blue-200/70 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                                    Delta has never offered this level of discount before. <br className="hidden md:block" />
-                                    Once it ends, it&apos;s gone — forever.
-                                </p>
-                            </div>
-
-                            {/* Deadline chip */}
-                            <div className="wn-u-badge flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-600/10 border border-blue-300/15">
-                                <div className="flex items-center gap-1.5">
-                                    <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-                                    <span className="text-xs font-bold text-red-300 uppercase tracking-widest">Deadline</span>
-                                </div>
-                                <div className="w-px h-4 bg-blue-400/20" />
-                                <span className="text-sm font-bold text-blue-100">Secure your seat before <span className="text-white">March 31</span></span>
-                            </div>
-
-                            {/* Divider */}
-                            <div className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
-
-                            {/* CTA */}
-                            <div className="wn-cta flex flex-col sm:flex-row items-center gap-4">
-                                <button className="cursor-pointer bg-linear-to-b from-white to-blue-200 text-black font-bold text-sm px-10 py-4 rounded-full flex items-center gap-3 hover:scale-105 active:scale-95 transition-transform shadow-[0_20px_60px_rgba(255,255,255,0.15)]">
-                                    Start Now
-                                    <span className="w-7 h-7 bg-black rounded-full flex items-center justify-center flex-shrink-0">
-                                        <ArrowRight className="w-4 h-4 text-white" />
-                                    </span>
-                                </button>
-                                <span className="text-xs text-blue-300/50 font-medium">No hidden fees · Cancel anytime</span>
                             </div>
                         </div>
 
-                        {/* Bottom rim glow */}
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+                        <div className="relative z-10 text-center">
+                            <h3 className="text-xl font-bold mb-4">Geopolitical Uncertainty = Opportunity</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed">
+                                Opportunities are there whether you are ready or not. The question is — will you profit from them?
+                            </p>
+                        </div>
                     </div>
                 </div>
 
+                {/* Card 2: Forex 24 hours */}
+                <div className="card h-full wn-card rounded-[2.5rem] p-1 border border-blue-400/15 md:backdrop-blur-xl">
+                    <div className="group h-full relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                        <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
+
+                        {/* 24h timezone graphic */}
+                        <div className="relative h-56 w-full mb-8 flex items-center justify-center">
+                            <div className="relative flex flex-col items-center gap-4">
+                                {/* Clock face */}
+                                <div className="relative w-20 h-20 rounded-full border border-blue-400/20 bg-black/30 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.25)]">
+                                    <div className="absolute inset-0 rounded-full border-t-2 border-blue-500/60 " />
+                                    <div className="text-center">
+                                        <div className="text-xl font-bold text-white leading-none">24</div>
+                                        <div className="text-[8px] text-blue-300/60 font-bold uppercase tracking-widest">Hours</div>
+                                    </div>
+                                </div>
+                                {/* Timezone row */}
+                                <div className="flex gap-2">
+                                    {['TOKYO', 'DUBAI', 'LONDON', 'NY'].map((city, i) => (
+                                        <div key={city} className="flex flex-col items-center gap-1">
+                                            <div className={`w-1.5 h-1.5 rounded-full ${i === 1 ? 'bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.8)]' : 'bg-blue-400/30'}`} />
+                                            <span className="text-[7px] font-bold text-blue-300/50 uppercase">{city}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                {/* Connecting lines */}
+                                <div className="absolute top-14 left-1/2 -translate-x-1/2 w-[1px] h-5 bg-gradient-to-b from-white/20 to-transparent" />
+                            </div>
+                        </div>
+
+                        <div className="relative z-10 text-center">
+                            <h3 className="text-xl font-bold mb-4">Forex Runs 24 Hours a Day</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed">
+                                Your income is not limited by time or location. Trade from anywhere, any time, on your own terms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Card 3: Savings losing value */}
+                <div className="card h-full wn-card rounded-[2.5rem] p-1 border border-blue-400/15 md:backdrop-blur-xl">
+                    <div className="group h-full relative rounded-[2.5rem] p-8 border border-blue-400/10 bg-[#050a15]/60 md:backdrop-blur-xl overflow-hidden flex flex-col items-center">
+                        <div className="absolute inset-0 card-glow-bottom opacity-80 transition-opacity duration-700" />
+
+                        {/* Savings vs trading graphic — matches feature card 3 progress style */}
+                        <div className="relative h-56 w-full mb-8 flex flex-col justify-center px-4">
+                            <div className="bg-black/40 rounded-2xl p-6 border border-white/5 space-y-6">
+                                <div className="space-y-3">
+                                    <div className="flex justify-between text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500">
+                                        <span>Savings (inflation)</span>
+                                        <span className="text-red-400/80">-3.2%</span>
+                                    </div>
+                                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <div className="h-full w-[22%] bg-gradient-to-r from-red-500/60 to-red-400/40 rounded-full" />
+                                    </div>
+                                </div>
+                                <div className="space-y-3">
+                                    <div className="flex justify-between text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500">
+                                        <span>Trading with Delta</span>
+                                        <span className="text-blue-200">+83%</span>
+                                    </div>
+                                    <div className="h-1.5 w-full bg-blue-200/5 rounded-full overflow-hidden">
+                                        <div className="h-full w-[83%] bg-blue-200 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="relative z-10 text-center">
+                            <h3 className="text-xl font-bold mb-4">Your Savings Are Losing Value</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed">
+                                Inflation erodes your cash daily. Trading gives you a way to grow it with skill — not just hope.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+         
         </section>
     );
 }
