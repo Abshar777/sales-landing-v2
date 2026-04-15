@@ -11,6 +11,7 @@ import PricingSection from "@/components/page-sections/pricing";
 import TestimonialsSection from "@/components/page-sections/testimonials";
 import FAQSection from "@/components/page-sections/faq";
 import ComparisonSection from "@/components/page-sections/comparison";
+import WhyNowSection from "@/components/page-sections/whynow";
 import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
 
@@ -45,6 +46,7 @@ export default function Home() {
       {heroReady && <div className="relative">
         <FeaturesSection />
         <TradingTeamSection />
+        <WhyNowSection />
         <PricingSection />
         <TestimonialsSection />
         <ComparisonSection />
